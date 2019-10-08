@@ -57,7 +57,7 @@ public static class CastleGenerator
             //choisis une direction au hasard
             Vector2Int generationDirection = HomeMadeFunctions.GetRandom(allowedGenerationDirection);
             Vector2Int nextRoomPosition = generationDirection + actualMainRoomPosition;
-            if (IsInBounds(nextRoomPosition) && !(Castle[nextRoomPosition.x, nextRoomPosition.y].isGenerated))
+            if (IsInBounds(nextRoomPosition, castleWidth, castleHeight) && !(Castle[nextRoomPosition.x, nextRoomPosition.y].isGenerated))
             //si la future pièce ne dépasse pas les limites du chateau et si la piece n'a pas déjà été générée:
             {
                 //a de chances de bloquer le chemin principale si nécessaire
@@ -120,7 +120,7 @@ public static class CastleGenerator
     /// true si une piece annexe ou une porte a sens unique a été crée, sinon false.
     /// </returns>
 
-    private static bool GenerateAnnexPath(int CastleWidth, int CastleHeight)
+    private static bool GenerateAnnexPath(int castleWidth, int castleHeight)
     {
         if (random.Next(3) == 0)
         {
@@ -128,7 +128,7 @@ public static class CastleGenerator
             Vector2Int choosenDirection = HomeMadeFunctions.GetRandom(possibleDirections);
             Vector2Int annexPathPosition = choosenDirection + actualMainRoomPosition;
             Debug.Log("position de la piece annexe: " + annexPathPosition+" "+actualMainRoomPosition);
-            if (!IsInBounds(annexPathPosition) || annexPathPosition == oldRoomPosition)
+            if (!IsInBounds(annexPathPosition, castleWidth, castleHeight) || annexPathPosition == oldRoomPosition)
             //si la piece annexe est en dehors des limites du chateau ou qu'elle retourne sur les pas de la génération du chemin principale
             {
                 return false;
@@ -176,7 +176,7 @@ public static class CastleGenerator
             annexRoom.chest = true;
         }
     }
-    private static bool IsInBounds(Vector2Int positionToTest){
+    private static bool IsInBounds(Vector2Int positionToTest, int castleWidth, int castleHeight){
       return positionToTest.x >= 0 && positionToTest.y >= 0 && positionToTest.x < castleWidth && positionToTest.y < castleHeight;
     }
 }

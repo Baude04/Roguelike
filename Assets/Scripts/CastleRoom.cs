@@ -16,10 +16,24 @@ public class CastleRoom
         {
             int keyIDPosition = CastleGenerator.random.Next(keysToInstall.Count);
             int keyID = keysToInstall[keyIDPosition];
-            keysToInstall.RemoveAt(keyIDPosition);
-            keys.Add(keyID);
+            if (!IsInArray(lockedDoorsIDs, keyID))
+            {
+                keysToInstall.RemoveAt(keyIDPosition);
+                keys.Add(keyID);
+            }
         }
         isGenerated = true;
+    }
+    private bool IsInArray(int[] array, int value)
+    {
+        foreach (int item in array)
+        {
+            if (item == value)
+            {
+                return true;
+            }
+        }
+        return false;
     }
     public void CreateHoleExit(Vector2Int newExitLocation)
     {
