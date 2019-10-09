@@ -13,13 +13,12 @@ public class WorldTileCreator : MonoBehaviour
     [SerializeField]
     private int worldHeight = 20;
 
-    private int[,] world;
+    private int[,] noiseMap;
 
     void Start()
     {
-        world = WorldGenerator.GenerateWorld(worldWidth, worldHeight);
+        noiseMap = WorldGenerator.GenerateNoiseMap(worldWidth, worldHeight);
         CreateTiles();
-        CastleGenerator.GenerateCastle(20, 20, 10);
     }
     
     private void CreateTiles()
@@ -29,11 +28,11 @@ public class WorldTileCreator : MonoBehaviour
             for (int x = 0; x < worldWidth; x++)
             {
                 Vector3 newTilePosition = new Vector3(x, y);
-                if (world[x,y] == 0)
+                if (noiseMap[x,y] == 0)
                 {
                     Instantiate(grassTile, newTilePosition, Quaternion.identity);
                 }
-                else if (world[x, y] == 1 )
+                else if (noiseMap[x, y] == 1 )
                 {
                     Instantiate(treeTile, newTilePosition, Quaternion.identity);
                 }

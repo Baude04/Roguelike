@@ -12,9 +12,9 @@ public class CastleRoom
 
     public void Generate(List<int> keysToInstall)
     {
-        if (keysToInstall.Count != 0 && CastleGenerator.random.NextDouble() > 1f / (keysToInstall.Count) / 1.10f)
+        if (keysToInstall.Count != 0 && Constants.RANDOM.NextDouble() > 1f / (keysToInstall.Count) / 1.10f)
         {
-            int keyIDPosition = CastleGenerator.random.Next(keysToInstall.Count);
+            int keyIDPosition = Constants.RANDOM.Next(keysToInstall.Count);
             int keyID = keysToInstall[keyIDPosition];
             if (!IsInArray(lockedDoorsIDs, keyID))
             {

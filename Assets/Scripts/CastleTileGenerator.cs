@@ -29,7 +29,7 @@ public class CastleTileGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CastleRoom[,] Castle = CastleGenerator.GenerateCastle(CASTLE_WIDTH, CASTLE_HEIGHT, 5, Random.Range(0, 1000));
+        Castle castle = new Castle(CASTLE_WIDTH, CASTLE_HEIGHT, 5);
         Debug.Log("---CastleTileGeneration---");
         for (int y = 0; y < CASTLE_HEIGHT; y++)
         {
@@ -37,52 +37,47 @@ public class CastleTileGenerator : MonoBehaviour
             {
                 #region exitCreation
                 Vector3 exitPosition;
-                GameObject room = Instantiate(roomPrefab, new Vector3(x * 6, y * 6), Quaternion.identity);
+                GameObject roomGameObject = Instantiate(roomPrefab, new Vector3(x * 6, y * 6), Quaternion.identity);
                 string[] directionsNames = new string[4] { "Up", "Right", "Down", "Left" };
                 Debug.Log("création de la salle" + "(" + x + ";" + y + ")");
-                Debug.Log("ouvertures de la salle:" + Castle[x, y].ToString());
+                CastleRoom room = castle.GetRoom(x, y);
+                Debug.Log("ouvertures de la salle:" + room.ToString());
 
 
                 for (int i = 0; i <= 3; i++)
                 {
-                    if (Castle[x, y].exits[i] != Constants.NO_EXIT)
+                    if (room.exits[i] != Constants.NO_EXIT)
                     {
                         
-                        exitPosition = room.transform.Find(directionsNames[i]).transform.position;
-                        Destroy(room.transform.Find(directionsNames[i]).gameObject);
-                        GameObject door = Instantiate(GetPrefab(Castle[x, y].exits[i]), exitPosition, Quaternion.identity, room.transform);
-                        if (Castle[x, y].exits[i] == Constants.LOCKED_DOOR)
+                        exitPosition = roomGameObject.transform.Find(directionsNames[i]).transform.position;
+                        Destroy(roomGameObject.transform.Find(directionsNames[i]).gameObject);
+                        GameObject door = Instantiate(GetPrefab(room.exits[i]), exitPosition, Quaternion.identity, roomGameObject.transform);
+                        if (room.exits[i] == Constants.LOCKED_DOOR)
                         {
                             LockedDoorScript doorScript = door.GetComponent<LockedDoorScript>();
-                            doorScript.SetId(Castle[x, y].lockedDoorsIDs[i]);
+                            doorScript.SetId(room.lockedDoorsIDs[i]);
                         }
                     }
 
-                    if (Castle[x, y].isGenerated)//////debuuuuug
+                    if (room.isGenerated)//////debuuuuug
                     {
-                        exitPosition = room.transform.Find("middlePoint").transform.position;
-                        Destroy(room.transform.Find("middlePoint").gameObject);
-                        Instantiate(debugPrefab, exitPosition, Quaternion.identity, room.transform);
+                        exitPosition = roomGameObject.transform.Find("middlePoint").transform.position;
+                        Destroy(roomGameObject.transform.Find("middlePoint").gameObject);
+                        Instantiate(debugPrefab, exitPosition, Quaternion.identity, roomGameObject.transform);
                     }
                     #endregion
                     #region keysCreation
-                    if (Castle[x, y].keys.Count > 0)
+                    if (room.keys.Count > 0)
                     {
-                        Vector3 keyPosition = room.transform.Find("keyLocation").transform.position;
-                        Destroy(room.transform.Find("keyLocation").gameObject);
-                        Instantiate(keyPrefab, keyPosition, Quaternion.identity, room.transform);
+                        Vector3 keyPosition = roomGameObject.transform.Find("keyLocation").transform.position;
+                        Destroy(roomGameObject.transform.Find("keyLocation").gameObject);
+                        Instantiate(keyPrefab, keyPosition, Quaternion.identity, roomGameObject.transform);
                         Debug.Log("clef posée en " + x + " " + y);
                     }
                     #endregion
                 }
             }
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     private GameObject GetPrefab(int exitType)

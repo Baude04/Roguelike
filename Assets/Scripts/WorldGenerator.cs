@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class WorldGenerator
 {
-    public static int[,] GenerateWorld (int worldWidth, int worldHeight, float scale = 0.2f, float treeFrequency = 0.30f)
+    public static int[,] GenerateNoiseMap (int worldWidth, int worldHeight, float scale = 0.2f, float treeFrequency = 0.30f)
     {
         //scale représente le "zoom" de la noise map
         int[,] World = new int[worldWidth, worldHeight];
