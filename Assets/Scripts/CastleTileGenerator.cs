@@ -29,7 +29,7 @@ public class CastleTileGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Castle castle = new Castle(CASTLE_WIDTH, CASTLE_HEIGHT, 5);
+        Castle castle = new Castle(CASTLE_WIDTH, CASTLE_HEIGHT, 5, Constants.SEED);
         Debug.Log("---CastleTileGeneration---");
         for (int y = 0; y < CASTLE_HEIGHT; y++)
         {

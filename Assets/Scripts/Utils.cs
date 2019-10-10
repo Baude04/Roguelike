@@ -13,13 +13,13 @@ public static class Constants
     public const int HOLE = 3;
     public const int LOCKED_DOOR = 4;
 
-    public static readonly System.Random RANDOM = new System.Random(42);
+    public static readonly int SEED = Random.Range(0, 1000);
 }
 public static class HomeMadeFunctions
 {
-    public static T GetRandom<T>(IList<T> list)
+    public static T GetRandom<T>(IList<T> list, System.Random random)
     {
-        return list[Constants.RANDOM.Next(list.Count)];
+        return list[random.Next(list.Count)];
     }
     /// <summary>
     /// map value like the arduino function(https://www.arduino.cc/reference/en/language/functions/math/map/)

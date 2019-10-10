@@ -10,11 +10,11 @@ public class CastleRoom
     public bool isGenerated = false;
     public bool chest;
 
-    public void Generate(List<int> keysToInstall)
+    public void Generate(List<int> keysToInstall, System.Random random)
     {
-        if (keysToInstall.Count != 0 && Constants.RANDOM.NextDouble() > 1f / (keysToInstall.Count) / 1.10f)
+        if (keysToInstall.Count != 0 && random.NextDouble() > 1f / (keysToInstall.Count) / 1.10f)
         {
-            int keyIDPosition = Constants.RANDOM.Next(keysToInstall.Count);
+            int keyIDPosition = random.Next(keysToInstall.Count);
             int keyID = keysToInstall[keyIDPosition];
             if (!IsInArray(lockedDoorsIDs, keyID))
             {
