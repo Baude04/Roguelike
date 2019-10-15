@@ -30,7 +30,7 @@ public class TileDataWorld
                     TileData grass = new TileData("TilesTextures/grass", true);
                     if (treeNoiseMap.GetPoint(x, y) < 0.3f)
                     {
-                        TileData tree = new TileData("TilesTextures/tree", false, 1);
+                        TileData tree = new TileData(GetRandomTreeTexturePath(), false, 1);
                         tileStacks[x, y] = new TileDataStack(grass, tree);
                     }
                     else
@@ -42,7 +42,10 @@ public class TileDataWorld
             }
         }
     }
-
+    private string GetRandomTreeTexturePath()
+    {
+        return "TilesTextures/tree" + Random.Range(1, 3);//the scnd parameter of this method is not included
+    }
     public TileDataStack GetStack(int x,int y)
     {
         return tileStacks[x, y];
