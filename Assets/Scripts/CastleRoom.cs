@@ -10,7 +10,9 @@ public class CastleRoom
     public bool isGenerated = false;
     public bool chest;
 
-    public void Generate(List<int> keysToInstall, System.Random random)
+    private readonly Vector2Int[] directions = new Vector2Int[] { Vector2Int.up, Vector2Int.right, Vector2Int.down, Vector2Int.left};//variable qui permet de factoriser le code a certains endroits
+
+public void Generate(List<int> keysToInstall, System.Random random)
     {
         if (keysToInstall.Count != 0 && random.NextDouble() > 1f / (keysToInstall.Count) / 1.10f)
         {
@@ -37,21 +39,12 @@ public class CastleRoom
     }
     public void CreateHoleExit(Vector2Int newExitLocation)
     {
-        if (newExitLocation == Vector2Int.up)
+        for (int i = 0; i < exits.Length; i++)
         {
-            exits[0] = Constants.HOLE;
-        }
-        else if (newExitLocation == Vector2Int.right)
-        {
-            exits[1] = Constants.HOLE;
-        }
-        else if (newExitLocation == Vector2Int.down)
-        {
-            exits[2] = Constants.HOLE;
-        }
-        else if (newExitLocation == Vector2Int.left)
-        {
-            exits[3] = Constants.HOLE;
+            if (directions[i] == newExitLocation && exits[i] == Constants.NO_EXIT)
+            {
+                exits[i] = Constants.HOLE;
+            }
         }
     }
 
@@ -80,25 +73,14 @@ public class CastleRoom
 
     public void CreateLockedDoor(int keyID, Vector2Int newLockedDoorLocation)
     {
-        if (newLockedDoorLocation == Vector2Int.up)
+        Debug.Log("locked door");
+        for (int i = 0; i < exits.Length; i++)
         {
-            exits[0] = Constants.LOCKED_DOOR;
-            lockedDoorsIDs[0] = keyID;
-        }
-        else if (newLockedDoorLocation == Vector2Int.right)
-        {
-            exits[1] = Constants.LOCKED_DOOR;
-            lockedDoorsIDs[1] = keyID;
-        }
-        else if (newLockedDoorLocation == Vector2Int.down)
-        {
-            exits[2] = Constants.LOCKED_DOOR;
-            lockedDoorsIDs[2] = keyID;
-        }
-        else if (newLockedDoorLocation == Vector2Int.left)
-        {
-            exits[3] = Constants.LOCKED_DOOR;
-            lockedDoorsIDs[3] = keyID;
+            if (directions[i] == newLockedDoorLocation)
+            {
+                exits[i] = Constants.LOCKED_DOOR;
+                lockedDoorsIDs[i] = keyID;
+            }
         }
     }
 

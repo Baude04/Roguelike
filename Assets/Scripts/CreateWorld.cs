@@ -16,16 +16,18 @@ public class CreateWorld : MonoBehaviour
     private System.Random random;
     private void Start()
     {
-        random = new System.Random(Constants.SEED);
+        /*random = new System.Random(Constants.SEED); //for creating garden
         worldNoiseMap = new NoiseMap(worldWidth, worldHeight, true, random);
-        treeNoiseMap = new NoiseMap(worldWidth, worldHeight, false, random);
-        world = new TileDataWorld(worldNoiseMap, treeNoiseMap);
-        for (int y = 0; y < worldHeight; y++)
+        treeNoiseMap = new NoiseMap(worldWidth, worldHeight, false, random);*/
+        Castle castle = new Castle(10, 10, 10, Random.Range(0,1000));
+        world = new TileDataWorld(castle, new Vector2Int(5, 5));
+
+        for (int y = 0; y < world.GetDimension().y; y++)
         {
-            for (int x = 0; x < worldWidth; x++)
+            for (int x = 0; x < world.GetDimension().x; x++)
             {
                 TileDataStack tileDataStack = world.GetStack(x, y);
-                Debug.Log(tileDataStack);
+                //Debug.Log(tileDataStack);
                 CreateTileFromData(y, x, tileDataStack.bottomTile);
 
                 if (tileDataStack.topTile != null)
@@ -41,6 +43,6 @@ public class CreateWorld : MonoBehaviour
     {
         GameObject tile = Instantiate(tilePrefab);
         tile.transform.position = new Vector3(x, y);
-        tile.AddComponent<TileSaveManager>().Restore(tileData);
+        tileData.Restore(tile);
     }
 }

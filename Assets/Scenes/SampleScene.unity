@@ -209,7 +209,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 179446994}
-  - component: {fileID: 179446995}
   - component: {fileID: 179446996}
   m_Layer: 0
   m_Name: World Tile Creator
@@ -232,30 +231,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &179446995
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 179446992}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 740085c78d4100342a11dabbbd7e3363, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  roomPrefab: {fileID: 554253035861964253, guid: 597c671ef770ebe429d19c8b8cb243a2,
-    type: 3}
-  keyPrefab: {fileID: 562462668}
-  holePrefab: {fileID: 8389268446393376154, guid: 686fa7a0fc2d6b54eb6bc3f3abd13a92,
-    type: 3}
-  lockedDoorPrefab: {fileID: 1487215013}
-  leftDoor: {fileID: 276165774509210304, guid: a89cae801606994449a06dc061736e1e, type: 3}
-  upDoor: {fileID: 2767553292211897620, guid: 78b55e98b49e2c74684ab7bde910c23a, type: 3}
-  rightDoor: {fileID: 2967086974500365729, guid: bed0f157c6d1de040bb31c19763630c2,
-    type: 3}
-  downDoor: {fileID: 667437127844612019, guid: db128428409e82c45a63a42a7dad7e43, type: 3}
-  debugPrefab: {fileID: 1413183252}
 --- !u!114 &179446996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -349,7 +324,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 36.2, y: 30, z: -2}
+  m_LocalPosition: {x: 4.9, y: 5.2, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -698,10 +673,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1487215013}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63914820489091947914686a35bcc14b, type: 3}
+  m_Script: {fileID: 11500000, guid: 861182d54e0240a47aab1caee6aa5e42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 1487215014}
 --- !u!1 &2077492362
 GameObject:
   m_ObjectHideFlags: 0

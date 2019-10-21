@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   sodipodi:docname="serrure.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   id="svg8"
+   version="1.1"
+   viewBox="0 0 210 297"
+   height="297mm"
+   width="210mm">
+  <defs
+     id="defs2">
+    <inkscape:path-effect
+       effect="mirror_symmetry"
+       start_point="103.01125,147.88271"
+       end_point="103.01125,278.84475"
+       center_point="103.01125,213.36373"
+       id="path-effect848"
+       is_visible="true"
+       mode="free"
+       discard_orig_path="false"
+       fuse_paths="true"
+       oposite_fuse="false" />
+  </defs>
+  <sodipodi:namedview
+     inkscape:window-maximized="1"
+     inkscape:window-y="-8"
+     inkscape:window-x="-8"
+     inkscape:window-height="837"
+     inkscape:window-width="1600"
+     showgrid="false"
+     inkscape:current-layer="layer1"
+     inkscape:document-units="mm"
+     inkscape:cy="315.29698"
+     inkscape:cx="459.77237"
+     inkscape:zoom="1"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       inkscape:connector-curvature="0"
+       id="path4582"
+       d="m 103.01125,145.46429 c -20.657479,0.36324 -37.79768,17.2132 -37.79768,37.94622 0,18.34513 13.016133,33.65002 30.317012,37.18377 0.729584,-0.11309 0.974638,0.37949 0.993717,1.15453 l -31.767662,50.96736 c -0.978506,1.2762 -1.552785,3.079 0,3.58363 h 38.254613 38.25461 c 1.55279,-0.50463 0.97851,-2.30743 0,-3.58363 L 109.4982,221.74881 c 0.0191,-0.77504 0.26413,-1.26762 0.99372,-1.15453 17.30088,-3.53375 30.31701,-18.83864 30.31701,-37.18377 0,-20.73302 -17.1402,-37.58298 -37.79768,-37.94622 z"
+       style="opacity:1;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#fefefe;stroke-width:20;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       inkscape:export-filename="C:\Users\Louis\Documents\Enfants\Baudouin\programmation\unity\RoguelikeGit\Assets\Resources\TilesTextures\castleLockedDoor.png"
+       inkscape:export-xdpi="15"
+       inkscape:export-ydpi="15" />
+    <path
+       style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:30;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       d="m 103.01125,145.46429 c -20.657479,0.36324 -37.79768,17.2132 -37.79768,37.94622 0,18.34513 13.016133,33.65002 30.317012,37.18377 0.729584,-0.11309 0.974638,0.37949 0.993717,1.15453 l -31.767662,50.96736 c -0.978506,1.2762 -1.552785,3.079 0,3.58363 h 38.254613 38.25461 c 1.55279,-0.50463 0.97851,-2.30743 0,-3.58363 L 109.4982,221.74881 c 0.0191,-0.77504 0.26413,-1.26762 0.99372,-1.15453 17.30088,-3.53375 30.31701,-18.83864 30.31701,-37.18377 0,-20.73302 -17.1402,-37.58298 -37.79768,-37.94622 z"
+       id="path4586"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\Louis\Documents\Enfants\Baudouin\programmation\unity\RoguelikeGit\Assets\Resources\TilesTextures\castleLockedDoor.png"
+       inkscape:export-xdpi="15"
+       inkscape:export-ydpi="15" />
+  </g>
+</svg>

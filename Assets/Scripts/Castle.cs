@@ -52,20 +52,23 @@ public class Castle
     {
         return rooms[xIndex, yIndex];
     }
-
+    public Vector2Int GetDimension()
+    {
+        return new Vector2Int(rooms.GetLength(0), rooms.GetLength(1));
+    }
     /// <summary>
     /// Génère la prochaine piece du chemin principale
     /// </summary>
     /// <returns>retourne true par défaut et false si la génération du chemin est terminée</returns>
     private bool GenerateMainPath(int castleWidth, int castleHeight)
     {
-        Debug.Log("room en cours de création:" + actualMainRoomPosition);
+        //Debug.Log("room en cours de création:" + actualMainRoomPosition);
         bool isRoomGenerated = false;
 
         while (!isRoomGenerated)//tant qu'aucune nouvelle pièce n'a été crée:
         {
-            Debug.Log("nbr de directions possibles:");
-            Debug.Log(allowedGenerationDirection.Count);
+            //Debug.Log("nbr de directions possibles:");
+            //Debug.Log(allowedGenerationDirection.Count);
             //choisis une direction au hasard
             Vector2Int generationDirection = HomeMadeFunctions.GetRandom(allowedGenerationDirection, random);
             Vector2Int nextRoomPosition = generationDirection + actualMainRoomPosition;
@@ -77,7 +80,7 @@ public class Castle
                 {
                     //bloque le chemin principale
                     rooms[actualMainRoomPosition.x, actualMainRoomPosition.y].CreateLockedDoor(-1, generationDirection);
-                    Debug.Log("chemin principale bloqué");
+                    //Debug.Log("chemin principale bloqué");
                     blockMainPath--;
                 }
                 else
@@ -89,7 +92,7 @@ public class Castle
                 rooms[nextRoomPosition.x, nextRoomPosition.y].CreateHoleExit(generationDirection * (-1));
                 rooms[nextRoomPosition.x, nextRoomPosition.y].Generate(keysToInstall, random);
 
-                Debug.Log("sortie de " + actualMainRoomPosition + ":" + rooms[actualMainRoomPosition.x, actualMainRoomPosition.y].ToString());
+                //Debug.Log("sortie de " + actualMainRoomPosition + ":" + rooms[actualMainRoomPosition.x, actualMainRoomPosition.y].ToString());
 
                 oldRoomPosition = actualMainRoomPosition;
                 actualMainRoomPosition = nextRoomPosition;
@@ -103,7 +106,7 @@ public class Castle
                 //empeche la génération de revenir en arrière en interdisant cette direction
                 allowedGenerationDirection.Remove(generationDirection * (-1));
 
-                Debug.Log("direction impossible:" + (generationDirection * -1));
+                //Debug.Log("direction impossible:" + (generationDirection * -1));
 
                 isRoomGenerated = true;
             }
@@ -111,14 +114,14 @@ public class Castle
             //sinon on interdit d'aller dans cette direction et on repart pour un tour de boucle
             {
                 allowedGenerationDirection.Remove(generationDirection);
-                Debug.Log("direction impossible:" + (generationDirection));
+                //Debug.Log("direction impossible:" + (generationDirection));
                 isRoomGenerated = false;
             }
             if (allowedGenerationDirection.Count == 0)
             //si aucune direction n'est possible
             {
-                Debug.Log("generation du chemin principale finie!");
-                Debug.Log("sortie de " + actualMainRoomPosition + ":" + rooms[actualMainRoomPosition.x, actualMainRoomPosition.y].ToString());
+                //Debug.Log("generation du chemin principale finie!");
+                //Debug.Log("sortie de " + actualMainRoomPosition + ":" + rooms[actualMainRoomPosition.x, actualMainRoomPosition.y].ToString());
                 return false;
             }
         }
@@ -139,7 +142,7 @@ public class Castle
             Vector2Int[] possibleDirections = new Vector2Int[] { Vector2Int.left, Vector2Int.up, Vector2Int.right, Vector2Int.down };
             Vector2Int choosenDirection = HomeMadeFunctions.GetRandom(possibleDirections, random);
             Vector2Int annexPathPosition = choosenDirection + actualMainRoomPosition;
-            Debug.Log("position de la piece annexe: " + annexPathPosition + " " + actualMainRoomPosition);
+            //Debug.Log("position de la piece annexe: " + annexPathPosition + " " + actualMainRoomPosition);
             if (!IsInBounds(annexPathPosition, castleWidth, castleHeight) || annexPathPosition == oldRoomPosition)
             //si la piece annexe est en dehors des limites du chateau ou qu'elle retourne sur les pas de la génération du chemin principale
             {
@@ -157,7 +160,7 @@ public class Castle
             {
                 GenerateAnnexRoom(annexPathPosition);
                 AnnexRoom.Generate(keysToInstall, random);
-                Debug.Log("piece annexe crée: " + annexPathPosition);
+                //Debug.Log("piece annexe crée: " + annexPathPosition);
             }
             return true;
         }

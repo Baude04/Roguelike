@@ -21,6 +21,7 @@ public static class HomeMadeFunctions
     {
         return list[random.Next(list.Count)];
     }
+    
     /// <summary>
     /// map value like the arduino function(https://www.arduino.cc/reference/en/language/functions/math/map/)
     /// </summary>
