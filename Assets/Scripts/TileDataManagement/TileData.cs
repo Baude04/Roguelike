@@ -54,6 +54,14 @@ public class TileData
         spriteRenderer.sprite = Resources.Load<Sprite>(texturePath);
         spriteRenderer.sortingOrder = GetLayer();
         gameObject.name = texturePath.Split('/')[1];
+        BoxCollider2D coll = gameObject.AddComponent<BoxCollider2D>();
+
+        if (crossable)
+        {
+            gameObject.AddComponent<WalkOnTileScript>();
+            coll.isTrigger = true;
+        }
+        else coll.isTrigger = false;
 
         for (int i = 0; i < mementos.Count; i++)
         {
