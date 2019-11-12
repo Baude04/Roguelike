@@ -58,7 +58,6 @@ public class TileData
 
         if (crossable)
         {
-            gameObject.AddComponent<WalkOnTileScript>();
             coll.isTrigger = true;
         }
         else coll.isTrigger = false;
