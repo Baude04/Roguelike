@@ -13,6 +13,9 @@ public static class Constants
     public const int HOLE = 3;
     public const int LOCKED_DOOR = 4;
 
+    public const int CHUNK_WIDTH = 5;
+    public const int CHUNK_HEIGHT = 5;
+
     public static readonly int SEED = Random.Range(0, 1000);
 }
 public static class HomeMadeFunctions

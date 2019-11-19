@@ -20,7 +20,7 @@ public class CreateWorld : MonoBehaviour
         worldNoiseMap = new NoiseMap(worldWidth, worldHeight, true, random);
         treeNoiseMap = new NoiseMap(worldWidth, worldHeight, false, random);*/
         Castle castle = new Castle(10, 10, 10, Random.Range(0,1000));
-        world = new TileDataWorld(castle, new Vector2Int(5, 5));
+        world = new TileDataWorld(castle, new Vector2Int(Constants.CHUNK_WIDTH, Constants.CHUNK_HEIGHT));
 
         for (int y = 0; y < world.GetDimension().y; y++)
         {

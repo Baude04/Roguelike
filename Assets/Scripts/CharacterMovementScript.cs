@@ -18,7 +18,12 @@ public class CharacterMovementScript : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
-    public void Move(Vector2Int direction)
+    /// <summary>
+    /// Move the character in the direction(he can only move one unit)
+    /// </summary>
+    /// <param name="direction">direction of the movement, values accepted are Vector2Int.zero,Vector2Int.up, Vector2Int.down, Vector2Int.left, Vector2Int.right</param>
+    /// <returns>true if he has moved, else false</returns>
+    public bool Move(Vector2Int direction)
     {
         Sprite newSprite = downSprite;      //default value
         if (CanMove(direction))
@@ -31,8 +36,9 @@ public class CharacterMovementScript : MonoBehaviour
             else Debug.LogError("Unexpected value"+direction.x+";"+direction.y);
             spriteRenderer.sprite = newSprite;
             transform.Translate(new Vector3(direction.x, direction.y));
+            return true;
         }
-        
+        return false;
     }
     private bool CanMove(Vector2Int direction)
     {
