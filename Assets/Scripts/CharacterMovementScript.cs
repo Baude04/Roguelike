@@ -28,6 +28,7 @@ public class CharacterMovementScript : MonoBehaviour
         Sprite newSprite = downSprite;      //default value
         if (CanMove(direction))
         {
+            //change sprite
             if (direction == Vector2Int.zero) newSprite = downSprite;
             else if (direction == Vector2Int.up) newSprite = upSprite;
             else if (direction == Vector2Int.down) newSprite = downSprite;
@@ -35,6 +36,7 @@ public class CharacterMovementScript : MonoBehaviour
             else if (direction == Vector2Int.right) newSprite = rightSprite;
             else Debug.LogError("Unexpected value"+direction.x+";"+direction.y);
             spriteRenderer.sprite = newSprite;
+            //move
             transform.Translate(new Vector3(direction.x, direction.y));
             return true;
         }
@@ -46,7 +48,7 @@ public class CharacterMovementScript : MonoBehaviour
         hits = Physics2D.RaycastAll(transform.position + new Vector3(0.5f, 0.5f), new Vector2(direction.x, direction.y), 1f);
         foreach (RaycastHit2D hit in hits)
         {
-            if (hit.transform != this && !hit.collider.isTrigger)
+            if (hit.transform != this.transform && !hit.collider.isTrigger)
             {
                 return false;
             }

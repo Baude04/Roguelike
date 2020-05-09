@@ -13,7 +13,7 @@ public class Castle
     private int keyRemaining;
     private System.Random random;
 
-    private int blockMainPath = 0;//la valeur de cette variable est inversement proportionnelle aux chances de bloquer le chemin principale
+    private int blockMainPath = 0;//the value must be 0 //la valeur de cette variable est inversement proportionnelle aux chances de bloquer le chemin principale
 
     public Castle(int castleWidth, int castleHeight, int annexLockedDoorNbr, int seed)
     {
@@ -175,10 +175,10 @@ public class Castle
         //mets une clef dans la pièce annexe qui ouvre la porte qui empeche de continuer le chemin principale
         if (random.Next(blockMainPath + 2) == 0)//plus on l'a bloqué moins il y a de chance de le bloquer
         {
-            //relie la piece annex au chemin principale
+            //relie la piece annexe au chemin principale
             annexRoom.CreateHoleExit(exitLocation);
             actualMainPathRoom.CreateHoleExit(exitLocation * -1);
-            annexRoom.keys.Add(-1);//le clef qui ouvrent le chemin principale ont toutes l'ID -1
+            annexRoom.keys.Add(-1);//les clefs qui ouvrent le chemin principale ont toutes l'ID -1
             blockMainPath++;
         }
         //ferme à clef la pièce annexe et met la clef dans une liste de clef à poser pendant la génération et pose un coffre

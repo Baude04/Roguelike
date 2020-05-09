@@ -14,7 +14,10 @@ public class WalkOnTileScript : MonoBehaviour
             Debug.Log("dist<1");
             Vector3 direction3d = transform.position - player.transform.position;
             Vector2Int direction2d = new Vector2Int((int)direction3d.x, (int)direction3d.y);
-            player.GetComponent<CharacterMovementScript>().Move(direction2d);
+            if (player.GetComponent<CharacterMovementScript>().Move(direction2d))
+            {
+                Clock.tic.Invoke();
+            }
         }
     }
 }

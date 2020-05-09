@@ -8,6 +8,7 @@ public class EnnemyAIScript : MonoBehaviour
     private float t = 0;
     void Start()
     {
+        Clock.tic.AddListener(Move);
         movementScript = GetComponent<CharacterMovementScript>();
     }
     void Move()
@@ -36,15 +37,6 @@ public class EnnemyAIScript : MonoBehaviour
                 continue;
             }
             break;
-        }
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        if (t + 0.3 < Time.time)
-        {
-            t = Time.time;
-            Move();
         }
     }
     private int MinDistanceToChunkBounds(int pos, int chunkSize)
